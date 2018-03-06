@@ -1,0 +1,53 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <title>로그아웃</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+  
+
+<!-- 로그인 폼 시작 -->
+<div class="container">
+    <h1>성공적으로 로그아웃이 되었습니다.</h1>
+</div>
+<!-- 로그인 폼 끝 -->
+
+<script src="https://www.gstatic.com/firebasejs/4.10.1/firebase.js"></script>
+
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyDUeyULjBu6geVd2QoY8tXdmPcoBcx61g8",
+    authDomain: "koengword.firebaseapp.com",
+    databaseURL: "https://koengword.firebaseio.com",
+    projectId: "koengword",
+    storageBucket: "koengword.appspot.com",
+    messagingSenderId: "182790025842"
+  };
+
+  firebase.initializeApp(config);
+
+  firebaseEmailAuth = firebase.auth(); //파이어베이스 인증 객체
+    firebaseDatabase = firebase.database(); //파이어베이스 데이터베이스 객체
+
+    firebaseEmailAuth.signOut().then(function() {
+    //alert("로그아웃 되었습니다")
+    //메인 페이지로 이동시키고 세션 저장시키기
+     window.location.href = "/index.html"
+     
+}).catch(function(error) {
+if(error){
+    alert("로그인 실패");
+}
+})
+
+</script>
+
+</body>
+</html>
